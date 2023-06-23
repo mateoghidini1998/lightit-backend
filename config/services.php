@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'apimedic_key' =>  env('APIMEDIC_API_KEY'),
+    
+
+    'health_service_url' => env('HEALTH_SERVICE_URL'),
+
 ];

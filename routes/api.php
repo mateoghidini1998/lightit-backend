@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SymptomsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,6 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{user}', [UserController::class, 'show']);
 Route::delete('users/{user}', [UserController::class, 'delete']);
 Route::put('users/{user}', [UserController::class, 'update']);
+
+Route::get('/symptoms', [SymptomsController::class, 'getAllSymptoms'])->middleware('auth');
+Route::post('/diagnosis', [SymptomsController::class, 'getDiagnoses'])->middleware('auth');
