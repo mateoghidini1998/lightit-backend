@@ -4,6 +4,8 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
+use App\Services\TokenGenerator;
+use Exception;
 
 class DiagnosisClient { 
 
@@ -14,8 +16,12 @@ class DiagnosisClient {
 
     # constructor
     function __construct($language) {
-        $this->token = Config::get('services.apimedic_key');
-        $this->validThrough = $this->getTokenValidThrough();
+
+        $tokenGenerator = new TokenGenerator();
+        $token = $tokenGenerator->loadToken();
+
+        $this->token = $token->Token;
+        $this->validThrough = $token->ValidThrough;
         $this->healthServiceUrl = Config::get('services.health_service_url');
         $this->language = $language;
     }

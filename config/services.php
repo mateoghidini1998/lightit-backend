@@ -32,8 +32,9 @@ return [
     ],
 
     'apimedic_key' =>  env('APIMEDIC_API_KEY'),
-    
-
+    'authservice_key' =>  env('AUTH_SERVICE_URL'),
+    'apimedic_user' =>  env('APIMEDIC_USERNAME'),
+    'apimedic_password' =>  env('APIMEDIC_PASSWORD'),  
     'health_service_url' => env('HEALTH_SERVICE_URL'),
 
 ];

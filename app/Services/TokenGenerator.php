@@ -1,15 +1,19 @@
 <?php
+    namespace App\Services;
+    use Exception;
+    use Illuminate\Support\Facades\Config;
+
     class TokenGenerator
     {
-        private $authServiceUrl = ''; 
-		private $username = '';
-		private $password = '';
+        private $authServiceUrl; 
+		private $username;
+		private $password;
         
         # constructor
-        function __construct($username, $pasword, $authServiceUrl) {
-            $this->username = $username;
-            $this->password = $pasword;
-            $this->authServiceUrl = $authServiceUrl;
+        function __construct() {
+            $this->username = Config::get('services.apimedic_user');
+            $this->password = Config::get('services.apimedic_password');
+            $this->authServiceUrl = Config::get('services.authservice_key');
         }
         
 		# <summary>
@@ -22,6 +26,7 @@
 		public function loadToken()
 		{
 			$computedHash = base64_encode(hash_hmac ( 'md5' , $this->authServiceUrl , $this->password, true ));
+            var_dump($this->authServiceUrl, $this->username, $this->password, $computedHash);
 			$authorization = 'Authorization: Bearer '.$this->username.':'.$computedHash;
 			
 			$curl = curl_init();
