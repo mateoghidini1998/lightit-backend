@@ -36,22 +36,19 @@ class DiagnosisClient {
         $extraArgs = 'token='.$this->token.'&format=json&language='.$this->language;
         $extraChar = strpos($action, '?') ? '&' : '?';
         $url = $this->healthServiceUrl.'/'.$action.$extraChar.$extraArgs;
-
-        var_dump($url);
         $response = Http::get($url);
-        $result = $response->body();
-        $obj = json_decode($result, true);
+        $result = $response->json();
+        /* $obj = json_decode($result, true); */
 
         if ($response->status() != 200) {
-            // Handle error from the server
-            // You can throw an exception or return an appropriate response
+            
             return null;
         }
 
-        return $obj;
+        return $result;
     }		
     
-    private function getTokenValidThrough()
+    /* private function getTokenValidThrough()
     {
         $tokenParts = explode('.', $this->token);
         if (count($tokenParts) !== 3) {
@@ -61,7 +58,7 @@ class DiagnosisClient {
         $payload = base64_decode($tokenParts[1]);
         $data = json_decode($payload, true);
         return $data['ValidThrough'] ?? null;
-    }
+    } */
 
     # <summary>
     # Load all symptoms

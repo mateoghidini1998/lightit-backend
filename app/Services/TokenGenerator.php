@@ -26,7 +26,7 @@
 		public function loadToken()
 		{
 			$computedHash = base64_encode(hash_hmac ( 'md5' , $this->authServiceUrl , $this->password, true ));
-            var_dump($this->authServiceUrl, $this->username, $this->password, $computedHash);
+            /* var_dump($this->authServiceUrl, $this->username, $this->password, $computedHash); */
 			$authorization = 'Authorization: Bearer '.$this->username.':'.$computedHash;
 			
 			$curl = curl_init();
