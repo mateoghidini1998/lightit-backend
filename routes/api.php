@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SymptomsController;
+use App\Http\Controllers\UserDiagnoseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,6 @@ Route::put('users/{user}', [UserController::class, 'update']);
 
 Route::get('/symptoms', [SymptomsController::class, 'getAllSymptoms'])->middleware('auth');
 Route::post('/diagnosis', [SymptomsController::class, 'getDiagnoses'])->middleware('auth');
+Route::post('/userdiagnose', [UserDiagnoseController::class, 'create'])->middleware('auth');
+Route::get('/userdiagnose/{user_id}', [UserDiagnoseController::class, 'index'])->middleware('auth');
+Route::delete('/userdiagnose/{diagnose_id}', [UserDiagnoseController::class, 'delete'])->middleware('auth');

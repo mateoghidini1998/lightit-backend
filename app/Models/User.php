@@ -26,6 +26,11 @@ class User extends Authenticatable implements JWTSubject
         'password',
     ];
 
+    public function diagnoses()
+    {
+        return $this->hasMany(UserDiagnosis::class);
+    }
+    
     /**
      * The attributes that should be hidden for serialization.
      *

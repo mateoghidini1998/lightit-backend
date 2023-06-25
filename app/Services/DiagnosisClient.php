@@ -47,18 +47,6 @@ class DiagnosisClient {
 
         return $result;
     }		
-    
-    /* private function getTokenValidThrough()
-    {
-        $tokenParts = explode('.', $this->token);
-        if (count($tokenParts) !== 3) {
-            return null;
-        }
-
-        $payload = base64_decode($tokenParts[1]);
-        $data = json_decode($payload, true);
-        return $data['ValidThrough'] ?? null;
-    } */
 
     # <summary>
     # Load all symptoms

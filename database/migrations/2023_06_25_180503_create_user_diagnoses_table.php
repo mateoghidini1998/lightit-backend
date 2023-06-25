@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('user_diagnoses', function (Blueprint $table) {
             $table->id();
-            $table->string('fullname');
-            $table->enum('gender', ['male', 'female']);
-            $table->date('birth_date');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedBigInteger('user_id');
+            $table->string('issue_name');
+            $table->string('issue_ProfName');
+            $table->string('issue_accuracy');
+            $table->json('specialisations');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('user_diagnoses');
     }
 };
