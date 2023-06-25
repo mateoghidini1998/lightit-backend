@@ -42,11 +42,6 @@ Run database migrations with:
 ```
 php artisane migrate
 ```
-Run database seeders:
-
-```
-php artisan db:seed
-```
 
 ## Other packages and dependencies.
 
