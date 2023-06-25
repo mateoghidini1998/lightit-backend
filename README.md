@@ -1,12 +1,12 @@
 ## Project Overview
 
-This project is a symptom checker API, allowing mulptile functionalities such as users authentication, and symptom evaluation allowing to deliver a diagnostic.
+This project is a symptom checker API, allowing mulptile functionalities such as users authentication, and symptom evaluation allowing to deliver a diagnostic using the ApiMedic api.
 
 ## Stack
 
--PHP 8.1
--Laravel Laravel 10x
--MySQL
+- PHP 8.1
+- Laravel Laravel 10x
+- MySQL
 
 ## Setup
 
@@ -114,7 +114,10 @@ Register in the api website and get the corresponding keys for the environment (
 
 You should get the following keys and include them in your .env file
 
-
+- HEALTH_SERVICE_URL=https://sandbox-healthservice.priaid.ch
+- AUTH_SERVICE_URL=https://sandbox-authservice.priaid.ch/login
+- APIMEDIC_USERNAME=<Sandbox Username>
+- APIMEDIC_PASSWORD=<Sandbox Password>
 
 
 
