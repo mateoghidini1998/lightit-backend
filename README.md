@@ -7,6 +7,7 @@ This project is a symptom checker API, allowing mulptile functionalities such as
 - PHP 8.1
 - Laravel Laravel 10x
 - MySQL
+- XAMPP
 
 ## Setup
 
@@ -42,6 +43,20 @@ Run database migrations with:
 ```
 php artisane migrate
 ```
+
+Before proceeding go to XAMPP configuration step.
+Run the server side api:
+
+```
+php artisan serve
+```
+
+## XAMPP
+
+Download an configure XAMPP for local server at https://www.apachefriends.org/es/index.html
+Notice: you may also use any other local server of your choice, such as MAMP, WAMP, etc.
+
+Remember to turn on the PHP and MySQL tabs before running the api.
 
 ## Other packages and dependencies.
 
