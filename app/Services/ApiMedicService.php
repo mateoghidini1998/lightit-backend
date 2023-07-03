@@ -4,13 +4,15 @@ namespace App\Services;
 
 use GuzzleHttp\Client;
 use App\Http\Services\TokenGenerator;
+use App\Services\DiagnosisClient;
 
 class ApiMedicService
 {
     protected $diagnosisClient;
 
-    public function __construct($language)
+    public function __construct()
     {
+        $language = 'en-gb';
         $this->diagnosisClient = new DiagnosisClient($language);
     }
 
